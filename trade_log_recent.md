@@ -1,36 +1,45 @@
 # 2026-08-24
 
-**Mode:** `dry_run` — nothing was placed. Both orders below were reviewed with the broker
-and stopped at the live-order gate, which stays shut while `execution.mode` is `dry_run`.
-(This is also validated cycle 1 of the 10 required before live orders can ever open.)
+Second cycle of the day (19:48 CT). Mode: **dry_run** — no live orders are
+possible, and no orders were placed. Dry-run cycle count stands at **1
+distinct date** of the 10 required before the live-order gate can open.
 
 ## Loss-limit check
-No realized equity P&L today or this week ($0.00 / $0.00 against $761.44 starting capital,
-0.00% daily and 0.00% weekly). Entries not halted.
 
-## Held positions
-None — the account is 100% cash ($761.44). No stop-loss, take-profit, or conviction-trim
-checks ran this cycle because there are no open positions to check, and there were no sells.
+Realized P&L is $0.00 today and $0.00 this week against $761.44 starting
+capital (0.00% / 0.00%), so new entries and top-ups were **not halted**.
 
-## Candidates considered
-Phase A proposed five theses; the three `avoid` ones (INTC, MRVL, SPCX) are not processed
-here. The two `long` candidates both cleared every gate:
+## Positions
 
-- **AAPL** — approved, sized **$152.29** (high conviction, 20% of account). Entry gate passed:
-  price gap −0.23% vs the thesis price, 0.91% *below* its 20-day average of $314.34, no
-  wash-sale conflict, no re-entry lock. Monday weekend check found the CEO transition
-  (John Ternus, effective Sept 1) and a 60-person VR layoff — neither contradicts the
-  thesis's invalidation criteria, so it was not dropped.
-- **AMD** — approved, sized **$45.69** (low conviction, 6% of account). Entry gate passed:
-  price gap +0.05%, 4.53% below its 20-day average of $481.12, no wash-sale conflict, no
-  re-entry lock. Weekend check found nothing on Sat/Sun; a board appointment (Aug 19) and
-  NVDA earnings due Aug 26 don't contradict the invalidation criteria.
+No open positions — the account is all cash ($761.44). Nothing to check for
+stop-loss, take-profit, or conviction trim this cycle, and there were no
+sells.
 
-Both were ranked ahead of nothing else — AAPL first on conviction tier, AMD second. After
-sizing, 2 of 4 position slots would be used, leaving $563.46 cash (74.0% buffer).
+## Candidates
+
+Phase A re-ran this evening and replaced the proposal file. Of its six
+theses, four came back `avoid` (INTC, MRVL, AMD, SPCX) and were not
+processed. AAPL was already decided earlier today under the same
+proposal date, so idempotency skipped it — its morning approval stands and
+was not re-run. That left one candidate:
+
+- **ALH** (new entry, low conviction, `dilution_risk`, 15.5% below its
+  52-week high) — **rejected.** Monday's weekend news search turned up
+  nothing new for Aug 22–23: the BDT Capital secondary and the Aug 11 Q2
+  results are both already inside the thesis, so it was not invalidated.
+  The buy gate then blocked it: the price gapped **+4.43%** above the
+  thesis-time price ($23.47 → $24.51), over the 3% `entry_price_gap`
+  ceiling. The other gate conditions were clear — extension was −5.48%
+  against the 20-day average of $25.93, no wash-sale match across the three
+  linked accounts, and no sell re-entry lock.
+
+  Worth noting for the human: this cycle ran at 19:45 CT rather than the
+  usual 08:35 CT, so the "fresh ask" was an after-hours quote with a wide
+  spread (bid $23.12 / ask $24.51) against a $23.84 official close. Most of
+  the measured gap is that spread. The gate is mechanical and was applied
+  as written — ALH is not blacklisted and gets re-evaluated on the next
+  Phase A run.
 
 ## Orders
-No orders placed (dry run). Reviewed only, both with no broker alerts:
 
-- AAPL — buy $152.29 (≈0.488987 sh @ $311.44 ask)
-- AMD — buy $45.69 (≈0.099477 sh @ $459.30 ask)
+None reviewed, none placed.
