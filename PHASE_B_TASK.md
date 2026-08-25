@@ -353,6 +353,24 @@ hours. **If today is Monday**:
 
 Other weekdays: skip straight to the price-based check.
 
+### Thesis stability gate (buys only)
+
+Skip entirely if `risk_rules.json`'s `thesis_stability.enabled` is `false`.
+
+Otherwise, for every candidate still in the running -- **new** entries and **held** top-ups alike -- read `thesis_history.jsonl` and collect that symbol's prior entries, most recent date first, EXCLUDING today's date, as `date:direction:conviction` triples. Gather the inputs, then let the script decide -- do not hand-evaluate consistency:
+
+`python3 scripts/thesis_stability.py --symbol <symbol> --today-date <today's date> --today-direction <this cycle's thesis direction> --today-conviction <this cycle's thesis conviction> --history "<date:direction:conviction,...>" --required-cycles <thesis_stability.required_consecutive_cycles>`
+
+Use its JSON output directly (`stable`, `effective_conviction`, `blocking_reason`, `action`, `detail`) rather than recomputing any of it.
+
+**If `stable` is false**, skip the buy this cycle regardless of how strong the thesis reads -- mechanical, not a judgment call, same as a stop-loss. Log `"stage": "risk_check", "passed": false, "proposal_date": "<candidate's date>", "reason": "<the script's detail field verbatim>", "stability_blocking_reason": "<the script's blocking_reason>"` (add `"position_action": "top_up"` if it is a top-up candidate). The candidate is not blacklisted -- it is re-evaluated fresh next cycle and clears the gate as soon as it has enough consistent history.
+
+**If `stable` is true**, use the script's `effective_conviction` -- NOT today's conviction -- as this candidate's conviction everywhere downstream: the `rank_candidates.py` priority sort, and `position_sizing.py`'s `--conviction-pct` tier lookup. Log both `"conviction": "<effective_conviction>"` and `"today_conviction": "<this cycle's conviction>"` on the risk_check entry so the difference stays auditable.
+
+**If the script fails to run**, do not guess a result: skip the buy this cycle and log `"stage": "risk_check", "passed": false, "reason": "thesis_stability.py failed to run -- buy skipped this cycle, verify manually"`.
+
+This gate never applies to sells. A stop-loss, take-profit tier, conviction trim, or `exit_existing` sell is never blocked, delayed, or resized by it.
+
 ### Buy gate (every day)
 
 **Buys only — new entries and top-ups; never applies to

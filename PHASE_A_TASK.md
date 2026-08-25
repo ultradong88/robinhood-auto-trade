@@ -285,6 +285,16 @@ omitting the field.
 should hold only today's candidates; history remains auditable via
 `trade_log.jsonl`, which Phase B writes to when acting on a proposal.
 
+**Also append every `thesis` record to `thesis_history.jsonl`** -- append-only, NEVER overwritten (unlike `pending_proposals.jsonl`), one line per thesis produced this run:
+
+```json
+{"date": "YYYY-MM-DD", "timestamp": "HH:mm:ss", "symbol": "XXXX", "direction": "long | avoid | exit_existing", "conviction": "low | medium | high"}
+```
+
+This is what Phase B's thesis-stability gate reads to decide whether a candidate has been consistent across cycles. Create the file if it does not exist yet.
+
+**When committing this run, stage BOTH files:** `git add pending_proposals.jsonl thesis_history.jsonl`. This supersedes any narrower `git add` command in the invoking routine prompt -- without `thesis_history.jsonl` on the remote, no history accumulates and Phase B's gate blocks every buy forever on `insufficient_history`.
+
 Every line needs a real `"timestamp"` (`HH:mm:ss`, e.g. via
 `TZ='America/Chicago' date +'%H:%M:%S'` — never guessed) alongside
 `"date"`. Time-of-day only, no date prefix. For human readability only —

@@ -81,6 +81,12 @@
     "note": "Trims a held position to its conviction-tier target once conviction has been 'low' for min_low_conviction_cycles consecutive cycles and the overage exceeds overweight_trigger_pct -- see scripts/conviction_trim.py. Re-entry lock is time-bound like take_profit, not indefinite like stop_loss."
   },
 
+  "thesis_stability": {
+    "enabled": true,
+    "required_consecutive_cycles": 2,
+    "note": "Buy-side only -- new entries and top-ups; never blocks, delays, or resizes a stop_loss/take_profit/conviction_trim/exit_existing sell. A candidate may only be bought if its thesis direction has been 'long' across required_consecutive_cycles consecutive Phase A cycles (distinct dates, today included), and it is then sized off the LOWEST conviction seen across that window rather than today's. This guards against a thesis flipping direction or conviction between runs on unchanged facts, which was observed three times in one day and moves position size across the 20/12/6 conviction tiers. History comes from thesis_history.jsonl, appended by Phase A every run. Set enabled to false to turn the gate off entirely; no other change needed."
+  },
+
   "loss_limits": {
     "daily_loss_limit_pct_of_account": 0.05,
     "weekly_loss_limit_pct_of_account": 0.10
