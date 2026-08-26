@@ -66,7 +66,7 @@ price-move signal both read off one computed table. Because it reads
 spilled files directly, an oversized response is a minor cost rather than
 a stall:
 
-    scripts/trend_signals.py --historicals <file>... \
+    python3 scripts/trend_signals.py --historicals <file>... \
         --asof <today> --lookback-days <trend_filter_lookback_trading_days> \
         --price SYM=<last_trade_price> ...
 
