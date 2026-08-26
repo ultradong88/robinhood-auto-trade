@@ -1,5 +1,3 @@
-
-Trend signals · PY
 #!/usr/bin/env python3
 # Part of FriesTrader (https://github.com/YizhiSong/FriesTrader)
 # Copyright (c) 2026 Yizhi Song, MIT License -- see LICENSE
