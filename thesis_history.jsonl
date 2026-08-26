@@ -4,3 +4,8 @@
 {"date": "2026-08-24", "timestamp": "19:30:51", "symbol": "AAPL", "direction": "long", "conviction": "high"}
 {"date": "2026-08-24", "timestamp": "19:30:51", "symbol": "AMD", "direction": "avoid", "conviction": "low"}
 {"date": "2026-08-24", "timestamp": "19:30:51", "symbol": "SPCX", "direction": "avoid", "conviction": "low"}
+{"date": "2026-08-26", "timestamp": "04:01:12", "symbol": "INTC", "direction": "avoid", "conviction": "low"}
+{"date": "2026-08-26", "timestamp": "04:01:12", "symbol": "SMTC", "direction": "long", "conviction": "high"}
+{"date": "2026-08-26", "timestamp": "04:01:12", "symbol": "SPCX", "direction": "avoid", "conviction": "low"}
+{"date": "2026-08-26", "timestamp": "04:01:12", "symbol": "MRVL", "direction": "avoid", "conviction": "low"}
+{"date": "2026-08-26", "timestamp": "04:01:12", "symbol": "AMD", "direction": "long", "conviction": "low"}
