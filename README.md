@@ -367,5 +367,3 @@ it in action" above, is just its daily recap):
 
 MIT — see `LICENSE`. Provided as-is, with no warranty; see the license
 for the full disclaimer.
-
-<!-- push-access check -->
