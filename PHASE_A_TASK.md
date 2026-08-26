@@ -46,11 +46,29 @@ Pull current prices for the capped candidate list via `get_equity_quotes`
 `current_price` in Steps 2–3.
 
 Pull price history per candidate via `get_equity_historicals`
-(`interval="day"`, spanning the last ~300 calendar days — enough to
+(`interval="day"`, spanning the last ~365 calendar days — enough to
 cover a `trend_filter_lookback_trading_days`-bar moving average plus
 buffer for weekends/holidays), fresh every run. This same series is
 reused in Step 2 for the 60-day price-move signal and in the trend-filter
 check just below — no second historicals call needed for either.
+
+**Batch these calls at no more than 3 symbols each.** A full-year daily
+series runs ~250 bars per symbol; at 8–10 symbols a single response
+exceeds the inline size limit and gets spilled to a file, which has
+stalled a run for hours. Smaller batches keep most responses inline.
+
+**Do the arithmetic with `scripts/trend_signals.py`, never by hand.** It
+accepts the `get_equity_historicals` responses — inline-saved or spilled
+files, any number of them — and returns, per symbol, the trailing
+`trend_filter_lookback_trading_days` SMA, `latest_close`, `close_60d_ago`
+and the 60-calendar-day price move, so Step 1's trend check and Step 2's
+price-move signal both read off one computed table. Because it reads
+spilled files directly, an oversized response is a minor cost rather than
+a stall:
+
+    scripts/trend_signals.py --historicals <file>... \
+        --asof <today> --lookback-days <trend_filter_lookback_trading_days> \
+        --price SYM=<last_trade_price> ...
 
 `universe.max_market_cap_usd` is a ceiling, not just a floor — exclude if
 market cap exceeds it, regardless of how strong the candidate otherwise
@@ -83,7 +101,13 @@ If fewer than `trend_filter_lookback_trading_days` daily bars are
 available (e.g. a recent IPO), skip this specific check for that
 candidate rather than excluding or guessing, and log
 `"trend filter skipped — fewer than <trend_filter_lookback_trading_days> daily bars available"`.
-
+**Bars carrying `interpolated: true` do not count toward that total and
+are excluded from the moving average.** They are synthesized gap fills
+that carry no new information, so a recently-listed symbol can return a
+full-length series that is mostly flat synthetic padding — averaging it
+produces a number the trend check would otherwise treat as a real trend.
+`scripts/trend_signals.py` applies this by default and reports
+`bars_returned` alongside `bars_used` so the gap is visible in the log.
 **Always ensure every held position is in the final list**
 (`get_equity_positions`, account_number from `risk_rules.json`) — if one
 already made it through on its own (e.g. it's also on the watchlist),
@@ -102,7 +126,7 @@ Phase B's job. See Hard stop below.)
 
 ## Step 2 — Gather signals
 
-Use the ~210-day price history per candidate already pulled in Step 1
+Use the ~365-day price history per candidate already pulled in Step 1
 (`get_equity_historicals`) — no second pull needed; take its most recent
 60 calendar days' worth of bars for the signal below. Never reuse
 `close_60d_ago`, `latest_close`, or any other historicals-derived value
