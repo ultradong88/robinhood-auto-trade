@@ -1,0 +1,44 @@
+name: Trigger FriesTrader Phase B
+
+# Fires the "FriesTrader Phase B — 风控与下单" Claude Code routine via its
+# API trigger. See trigger-phase-a.yml in this same directory for the full
+# setup steps (same idea, different routine/secret names) and the caveat
+# about the routine's own Schedule trigger.
+#
+# Required GitHub repo config (Settings -> Secrets and variables -> Actions):
+#   - Variable PHASE_B_ROUTINE_ID   = the routine ID from its API trigger URL
+#   - Secret   PHASE_B_ROUTINE_TOKEN = the token generated for that API trigger
+#
+# Cron note: 13:35 UTC = 08:35 America/Chicago on daylight time (CDT,
+# roughly mid-March to early November). During standard time (CST, UTC-6)
+# this drifts an hour early; shift to "35 14 * * 1-5" during that period if
+# exact timing matters, or leave it — Phase B reads the real Chicago clock
+# itself and re-verifies against a fresh live quote regardless of exactly
+# when it fires.
+
+on:
+  schedule:
+    - cron: '35 13 * * 1-5'
+  workflow_dispatch: {}
+
+jobs:
+  fire-routine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST to the Phase B routine's /fire endpoint
+        run: |
+          set -euo pipefail
+          if [ -z "${PHASE_B_ROUTINE_ID:-}" ] || [ -z "${PHASE_B_ROUTINE_TOKEN:-}" ]; then
+            echo "::error::PHASE_B_ROUTINE_ID (variable) or PHASE_B_ROUTINE_TOKEN (secret) is not set. See the setup steps in trigger-phase-a.yml." >&2
+            exit 1
+          fi
+          curl --fail-with-body -sS -X POST \
+            "https://api.anthropic.com/v1/claude_code/routines/${PHASE_B_ROUTINE_ID}/fire" \
+            -H "Authorization: Bearer ${PHASE_B_ROUTINE_TOKEN}" \
+            -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "Content-Type: application/json" \
+            -d '{}'
+        env:
+          PHASE_B_ROUTINE_ID: ${{ vars.PHASE_B_ROUTINE_ID }}
+          PHASE_B_ROUTINE_TOKEN: ${{ secrets.PHASE_B_ROUTINE_TOKEN }}
