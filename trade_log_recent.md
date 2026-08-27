@@ -1,6 +1,6 @@
 # 2026-08-27
 
-Phase B cycle ran at 00:56:37 CT in **dry_run** mode (`execution.mode` is
+Phase B cycle ran at 11:13:48 CT in **dry_run** mode (`execution.mode` is
 `dry_run` in `risk_rules.json`, and only 3 distinct dry-run cycle dates are on
 record against the 10 required) — so the live-order gate was closed and no
 order could be placed regardless of outcome.
@@ -20,32 +20,37 @@ halted.**
 
 ## Candidates considered
 
-Phase A's latest run (dated 2026-08-26) passed four `long` candidates:
-**SMTC** and **AMD** were already decided under this exact `proposal_date` by
-an earlier cycle today (2026-08-26 04:08:53) and were skipped again per the
-idempotency rule — not reprocessed. **INTC** and **BZ** were new and were
-evaluated:
+Phase A's latest run (dated 2026-08-27, 00:59:41 CT) passed four `long`
+candidates: **INTC**, **AMD**, **BZ**, **SMTC**. None had been decided under
+this exact `proposal_date` before, so all four were evaluated fresh.
 
-- **INTC** — low conviction, `dilution_risk` flag, 38.0% below its 52-week
-  high. **Rejected** by the thesis-stability gate
-  (`thesis_stability.required_consecutive_cycles: 2`): direction was not
-  `long` across both required cycles — Phase A read INTC as `avoid` on
-  2026-08-24 and `long` on 2026-08-26. Buy gate, ranking and sizing not
-  reached.
-- **BZ** — medium conviction, no risk flags, 25.4% below its 52-week high.
-  **Rejected**: only 1 of 2 required consecutive cycles available — today
-  (2026-08-26) is BZ's first appearance in `thesis_history.jsonl`, so there's
-  no prior cycle for it to agree with.
+All four cleared the thesis-stability gate (2 consecutive cycles of `long`
+direction, 2026-08-27 agreeing with 2026-08-26):
 
-Neither is blacklisted; both are re-evaluated fresh next cycle and clear the
-gate as soon as they have enough consistent history.
+- **INTC** — low conviction, stable. **Rejected at the buy gate**: fresh ask
+  $90.75 is 3.74% above the $87.48 thesis-time price, over the
+  `entry_price_gap.max_pct` (3%) ceiling.
+- **AMD** — conviction drifted (today high, 2026-08-26 low) — sized off the
+  lower, **low**. Buy gate passed (gap −1.25%, extension −2.03% vs. its
+  20-day average). Ranked and sized: **$45.69** (6% tier), 1 of 4 concurrent
+  slots used, $715.75 cash remaining. **Approved.**
+- **BZ** — medium conviction, stable. **Rejected at the buy gate**: fresh ask
+  $18.17 is both 11.54% above the $16.29 thesis-time price (gap ceiling 3%)
+  and 11.71% above its 20-day average of $16.265 (extension ceiling 10%).
+- **SMTC** — high conviction, stable. **Rejected at the buy gate**: fresh ask
+  $143.79 is both 12.76% above the $127.52 thesis-time price (gap ceiling 3%)
+  and 10.39% above its 20-day average of $130.261 (extension ceiling 10%).
 
-Phase A's `avoid` calls (ANF, BHVN, MRVL, SPCX) were not processed further,
-per spec.
+Wash-sale guard checked for all four against every `wash_sale_avoidance`
+linked account — no realized-loss sale of any of these symbols in the last
+30 days, so it was never the blocking condition. Phase A's `avoid` calls
+(MRVL, SPCX, ANF, BHVN) were not processed further, per spec.
 
 ## Orders
 
-None reviewed and none placed — no candidate got past the stability gate.
+**AMD** — buy, $45.69 (~0.0966 sh at $473.17 ask), reviewed with no blocking
+alert. Logged as `dry_run`/`would_execute: true` — **not placed**, since
+`execution.mode` is `dry_run`.
 
 _(Convenience view only. `trade_log.jsonl` is the source of truth; if the two
 disagree, trust `trade_log.jsonl`.)_
