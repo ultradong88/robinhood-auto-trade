@@ -1,8 +1,9 @@
-# 2026-08-28
+# 2026-08-31
 
-A second Phase B cycle ran today at **18:12:45 CT** (the first ran at
-11:42:07 CT). `execution.mode` is still `dry_run` in `risk_rules.json`, so
-the live-order gate was closed regardless of outcome.
+Phase B ran today at **09:18:27 CT**. `execution.mode` is still `dry_run` in
+`risk_rules.json`, so the live-order gate was closed regardless of outcome
+(and would have been closed anyway — the dry-run cycle count is only 5 of
+the 10 required).
 
 ## Account state
 
@@ -19,24 +20,35 @@ daily and 10% weekly). **Entries not halted.**
 
 ## Candidates considered
 
-None newly evaluated. `pending_proposals.jsonl` hasn't changed since this
-morning's run — it still holds the same eight `direction: long` candidates
-(**MU**, **AAPL**, **AMD**, **DELL**, **NVDA**, **OKTA**, **CRM**, **VEEV**)
-plus three `direction: avoid` calls (MRVL, SPCX, INTC, not processed further).
-All eight `long` candidates already carry a `risk_check`/`order` entry under
-today's exact `proposal_date` (2026-08-28) from the 11:42:07 CT cycle, so
-Step 0's idempotency rule skipped every one of them this cycle rather than
-re-deciding the same day twice. See the morning entry in `trade_log.jsonl`
-(and the prior version of this file) for how each was actually decided:
-AAPL and AMD were approved and sized (dry-run); MU, DELL, NVDA, OKTA, CRM and
-VEEV were rejected for insufficient thesis-stability history.
+`pending_proposals.jsonl` still holds Friday's (2026-08-28) Phase A run —
+no Phase A run happened over the weekend or yet today. Its nine
+`direction: long` candidates: MU, MRVL, NVDA, AAPL, AMD, DELL, AFRM, TENB,
+ESI (three `direction: avoid` calls — SPCX, INTC, SUNB — not processed
+further).
+
+- **MU, AAPL, AMD, DELL, NVDA** — already carry a `risk_check`/`order` entry
+  under `proposal_date` 2026-08-28 from Friday's cycle; skipped this cycle
+  under Step 0's idempotency rule (not re-decided).
+- **MRVL, AFRM, TENB, ESI** — newly evaluated this cycle. Since today is
+  Monday, each first got a weekend-gap news search (Sat/Sun 2026-08-29..30):
+  nothing found invalidated any of the four theses. All four then hit the
+  thesis-stability gate and were **rejected**, never reaching the buy gate:
+  - **MRVL** — thesis flipped: `avoid` on 2026-08-27, `long` today —
+    direction unstable.
+  - **AFRM** — first appearance in `thesis_history.jsonl`; only 1 of 2
+    required consecutive cycles available.
+  - **TENB** — same: first appearance, insufficient history.
+  - **ESI** — same: first appearance, insufficient history.
+
+None of the nine `long` candidates were approved or sized this cycle.
 
 ## Orders
 
 None reviewed or placed this cycle.
 
-Dry-run cycle count remains **4** distinct dates (2026-08-24, 08-26, 08-27,
-08-28) against the **10** required before the live-order gate can open.
+Dry-run cycle count is now **5** distinct dates (2026-08-24, 08-26, 08-27,
+08-28, 08-31) against the **10** required before the live-order gate can
+open.
 
 _(Convenience view only. `trade_log.jsonl` is the source of truth; if the two
 disagree, trust `trade_log.jsonl`.)_
