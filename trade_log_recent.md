@@ -1,8 +1,9 @@
-# 2026-08-28
+# 2026-08-31
 
-A second Phase B cycle ran today at **18:12:45 CT** (the first ran at
-11:42:07 CT). `execution.mode` is still `dry_run` in `risk_rules.json`, so
-the live-order gate was closed regardless of outcome.
+Phase B ran at **09:18:26 CT**. `execution.mode` is still `dry_run` in
+`risk_rules.json`, so the live-order gate was closed regardless of outcome.
+Pre-flight check: all 7 required Robinhood MCP tools verified available and
+functioning before proceeding.
 
 ## Account state
 
@@ -19,24 +20,40 @@ daily and 10% weekly). **Entries not halted.**
 
 ## Candidates considered
 
-None newly evaluated. `pending_proposals.jsonl` hasn't changed since this
-morning's run — it still holds the same eight `direction: long` candidates
-(**MU**, **AAPL**, **AMD**, **DELL**, **NVDA**, **OKTA**, **CRM**, **VEEV**)
-plus three `direction: avoid` calls (MRVL, SPCX, INTC, not processed further).
-All eight `long` candidates already carry a `risk_check`/`order` entry under
-today's exact `proposal_date` (2026-08-28) from the 11:42:07 CT cycle, so
-Step 0's idempotency rule skipped every one of them this cycle rather than
-re-deciding the same day twice. See the morning entry in `trade_log.jsonl`
-(and the prior version of this file) for how each was actually decided:
-AAPL and AMD were approved and sized (dry-run); MU, DELL, NVDA, OKTA, CRM and
-VEEV were rejected for insufficient thesis-stability history.
+`pending_proposals.jsonl` still holds the 2026-08-28 22:24:17 Phase A run —
+no Phase A run over the weekend, as expected. Of its nine `direction: long`
+candidates:
+
+- **MU, AAPL, AMD, DELL, NVDA** already carry a `risk_check`/`order` entry
+  under `proposal_date` 2026-08-28 from Friday's 11:42:07 CT cycle, so Step
+  0's idempotency rule skipped them without re-evaluation.
+- **MRVL, AFRM, TENB, ESI** had no prior entry for `proposal_date` 2026-08-28
+  and were evaluated fresh this cycle:
+  - Since today is Monday, each got one extra weekend-news search
+    (Sat/Sun/Mon) before anything else. Nothing turned up that materially
+    contradicted any of the four theses (MRVL: Q2 earnings beat but an
+    after-hours margin/valuation selloff, with analysts still bullish; AFRM:
+    coverage consistent with the reported earnings beat; TENB: the
+    already-known S&P SmallCap 600 inclusion went effective today; ESI: a
+    bullish analyst note plus a routine dividend declaration).
+  - **MRVL** — rejected by the thesis-stability gate: `avoid` on every prior
+    cycle (2026-08-24 through 2026-08-28 00:39:52), flipping to `long` only
+    on the stale 22:24:17 proposal — direction not stable.
+  - **AFRM, TENB, ESI** — rejected by the thesis-stability gate: first
+    appearance in `thesis_history.jsonl`, only 1 of the required 2
+    consecutive cycles available.
+  - None reached the buy gate, ranking, or sizing.
+
+`direction: avoid` calls (SPCX, INTC, SUNB) were not processed further. No
+`exit_existing` candidates.
 
 ## Orders
 
 None reviewed or placed this cycle.
 
-Dry-run cycle count remains **4** distinct dates (2026-08-24, 08-26, 08-27,
-08-28) against the **10** required before the live-order gate can open.
+Dry-run cycle count is now **5** distinct dates (2026-08-24, 08-26, 08-27,
+08-28, 08-31) against the **10** required before the live-order gate can
+open.
 
 _(Convenience view only. `trade_log.jsonl` is the source of truth; if the two
 disagree, trust `trade_log.jsonl`.)_
