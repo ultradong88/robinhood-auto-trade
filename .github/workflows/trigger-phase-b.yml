@@ -1,24 +1,17 @@
 name: Trigger FriesTrader Phase B
 
-# Fires the "FriesTrader Phase B — 风控与下单" Claude Code routine via its
-# API trigger. See trigger-phase-a.yml in this same directory for the full
-# setup steps (same idea, different routine/secret names) and the caveat
-# about the routine's own Schedule trigger.
+# Backup/manual trigger only. Scheduling now lives on cron-job.org (job
+# "FriesTrader Phase B", crontab 35 8 * * 1-5 America/Chicago), because
+# GitHub Actions' own `schedule:` trigger fires 5-10 hours late and was
+# double-firing this routine alongside cron-job.org. This workflow is kept
+# only so it can still be run by hand from the Actions tab if ever needed.
 #
-# Required GitHub repo config (Settings -> Secrets and variables -> Actions):
-#   - Variable PHASE_B_ROUTINE_ID   = the routine ID from its API trigger URL
-#   - Secret   PHASE_B_ROUTINE_TOKEN = the token generated for that API trigger
-#
-# Cron note: 13:35 UTC = 08:35 America/Chicago on daylight time (CDT,
-# roughly mid-March to early November). During standard time (CST, UTC-6)
-# this drifts an hour early; shift to "35 14 * * 1-5" during that period if
-# exact timing matters, or leave it — Phase B reads the real Chicago clock
-# itself and re-verifies against a fresh live quote regardless of exactly
-# when it fires.
+# Required GitHub repo config (Settings -> Secrets and variables -> Actions)
+# is unchanged:
+#   - Variable PHASE_B_ROUTINE_ID
+#   - Secret   PHASE_B_ROUTINE_TOKEN
 
 on:
-  schedule:
-    - cron: '35 13 * * 1-5'
   workflow_dispatch: {}
 
 jobs:
@@ -29,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "${PHASE_B_ROUTINE_ID:-}" ] || [ -z "${PHASE_B_ROUTINE_TOKEN:-}" ]; then
-            echo "::error::PHASE_B_ROUTINE_ID (variable) or PHASE_B_ROUTINE_TOKEN (secret) is not set. See the setup steps in trigger-phase-a.yml." >&2
+            echo "::error::PHASE_B_ROUTINE_ID (variable) or PHASE_B_ROUTINE_TOKEN (secret) is not set." >&2
             exit 1
           fi
           curl --fail-with-body -sS -X POST \
