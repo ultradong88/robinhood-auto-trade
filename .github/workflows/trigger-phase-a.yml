@@ -1,38 +1,17 @@
 name: Trigger FriesTrader Phase A
 
-# Fires the "FriesTrader Phase A — 选股与 thesis" Claude Code routine via its
-# API trigger, instead of relying on the routine's own built-in schedule
-# (which has been unreliable for unattended firings). GitHub Actions' cron
-# is the source of truth for *when*; the routine itself still does the
-# actual screening/thesis work and still needs Robinhood MCP + GitHub push
-# access configured on it exactly as before.
+# Backup/manual trigger only. Scheduling now lives on cron-job.org (job
+# "FriesTrader Phase A", crontab 30 16 * * 1-5 America/Chicago), because
+# GitHub Actions' own `schedule:` trigger fires 5-10 hours late and was
+# double-firing this routine alongside cron-job.org. This workflow is kept
+# only so it can still be run by hand from the Actions tab if ever needed.
 #
-# Setup (one-time, done on github.com and on the routine's own page —
-# nothing here needs editing unless the schedule itself changes):
-#   1. Open the Phase A routine at https://claude.ai/code/routines, click
-#      the pencil icon to edit it, scroll to "Select a trigger", click
-#      "Add another trigger" -> "API", then "Generate token". Copy the
-#      routine ID (in the URL shown, https://api.anthropic.com/v1/claude_code/routines/<ID>/fire)
-#      and the token.
-#   2. In this GitHub repo: Settings -> Secrets and variables -> Actions
-#        - Variables tab -> New repository variable -> PHASE_A_ROUTINE_ID -> paste the ID
-#        - Secrets tab   -> New repository secret   -> PHASE_A_ROUTINE_TOKEN -> paste the token
-#   3. Once this workflow has been verified to fire the routine correctly
-#      (see the Actions tab -> run this workflow manually), go back to the
-#      routine's edit page and remove its own Schedule trigger, so only
-#      this GitHub Actions cron fires it — running both would double-fire
-#      it on the same day.
-#
-# Note on cron time: 21:30 UTC = 16:30 America/Chicago while US clocks are
-# on daylight time (CDT, roughly mid-March to early November). During
-# standard time (CST, UTC-6) this drifts an hour early; shift the cron to
-# "30 22 * * 1-5" during that period if exact timing matters, or leave it
-# — Phase A reads the real Chicago clock itself and doesn't depend on
-# firing at the exact minute.
+# Required GitHub repo config (Settings -> Secrets and variables -> Actions)
+# is unchanged:
+#   - Variable PHASE_A_ROUTINE_ID
+#   - Secret   PHASE_A_ROUTINE_TOKEN
 
 on:
-  schedule:
-    - cron: '30 21 * * 1-5'
   workflow_dispatch: {}
 
 jobs:
@@ -43,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "${PHASE_A_ROUTINE_ID:-}" ] || [ -z "${PHASE_A_ROUTINE_TOKEN:-}" ]; then
-            echo "::error::PHASE_A_ROUTINE_ID (variable) or PHASE_A_ROUTINE_TOKEN (secret) is not set. See the setup steps at the top of this workflow file." >&2
+            echo "::error::PHASE_A_ROUTINE_ID (variable) or PHASE_A_ROUTINE_TOKEN (secret) is not set." >&2
             exit 1
           fi
           curl --fail-with-body -sS -X POST \
