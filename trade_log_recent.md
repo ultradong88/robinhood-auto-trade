@@ -1,6 +1,8 @@
 # 2026-09-01
 
-Phase B ran today at **02:57:23 CT**. `execution.mode` is still `dry_run` in
+Phase B ran twice today: **02:57:23 CT** (against the stale 2026-08-31 Phase A
+proposals) and **03:56:29 CT** (this cycle, against a fresh Phase A run that
+landed at 03:09:16 CT). `execution.mode` is still `dry_run` in
 `risk_rules.json`, so the live-order gate was closed regardless of outcome
 (and would have been closed anyway — the dry-run cycle count is only 6 of
 the 10 required).
@@ -20,53 +22,50 @@ daily and 10% weekly). **Entries not halted.**
 
 ## Candidates considered
 
-`pending_proposals.jsonl` holds Monday's (2026-08-31) Phase A run — no Phase A
-run happened yet today. Its five `direction: long` candidates: VRT, MRVL,
-NVDA, AMD, DELL (three `direction: avoid` calls — SPCX, INTC, SUNB — not
-processed further; no `exit_existing` candidates).
+This cycle's `pending_proposals.jsonl` (Phase A run at 03:09:16 CT,
+`proposal_date` 2026-09-01) carried three `direction: long` candidates —
+NVDA, AMD, DELL — plus six `direction: avoid` calls (VRT, MRVL, SPCX, INTC,
+SUNB, AVY, not processed further) and no `exit_existing` candidates.
 
-None of the five had a prior `risk_check`/`order` entry under `proposal_date`
-2026-08-31, so all were evaluated fresh (today isn't Monday, so no
-weekend-gap search applied):
+None of the three had a prior `risk_check`/`order` entry under `proposal_date`
+2026-09-01 (today isn't Monday, so no weekend-gap search applied):
 
-- **VRT** — rejected at the thesis-stability gate: first appearance in
-  `thesis_history.jsonl`, only 1 of 2 required consecutive cycles available.
-- **MRVL, NVDA, AMD, DELL** — all passed thesis-stability (direction `long`
-  across both 2026-08-31 and 2026-08-28); NVDA's conviction drifted
-  (high → low) and was sized off the lower, per `thesis_stability.py`. All
-  four then passed the buy gate (price gap, 20-day extension, wash-sale, and
-  sell re-entry lock all clear — MRVL's prior loss-sales in account
-  506946300 are all outside the 30-day wash-sale window). MRVL's -2.64%
-  entry gap was re-checked against its thesis's invalidation criteria;
-  nothing new turned up (a Aug 31 TD Cowen price-target raise doesn't
-  invalidate it).
+- **NVDA, AMD, DELL** — all passed thesis-stability (direction `long` across
+  both 2026-09-01 and 2026-08-31). DELL's conviction drifted (medium → low)
+  and was sized off the lower, per `thesis_stability.py`; NVDA and AMD were
+  stable. All three then passed the buy gate (price gap, 20-day extension,
+  wash-sale, and sell re-entry lock all clear — no prior loss-sales found for
+  any of the three symbols in any linked account). All three gaps vs.
+  thesis-time price were trivial (well under 1%), so no invalidation
+  re-check was needed.
 
-`rank_candidates.py`/`position_sizing.py` approved and sized all four,
-filling every slot:
+`rank_candidates.py`/`position_sizing.py` approved and sized all three,
+filling 3 of 4 slots:
 
-| Rank | Symbol | Conviction | Size |
-|---|---|---|---|
-| 1 | DELL | medium | $91.44 |
-| 2 | AMD | low | $45.72 |
-| 3 | NVDA | low (effective) | $45.72 |
-| 4 | MRVL | low | $45.72 |
+| Rank | Symbol | Conviction | Risk flags | Size |
+|---|---|---|---|---|
+| 1 | NVDA | high | none | $152.41 |
+| 2 | AMD | low | none | $45.72 |
+| 3 | DELL | low (effective) | governance_history | $45.72 |
 
-Concurrent positions after: 4 of 4 max. Cash remaining (if live): $533.44.
+(AMD ranked ahead of DELL within the tied `low` conviction tier because DELL
+carries one risk flag and AMD carries none.)
+
+Concurrent positions after: 3 of 4 max. Cash remaining (if live): $518.19.
 
 ## Orders
 
-All four reviewed via `review_equity_order` — no blocking alerts on any.
-Since `execution.mode` is `dry_run`, none were placed; all four logged as
+All three reviewed via `review_equity_order` — no blocking alerts on any.
+Since `execution.mode` is `dry_run`, none were placed; all three logged as
 `would_execute: true` only:
 
-- DELL — buy ~$91.44 (~0.199433 sh @ ask $458.50)
-- AMD — buy ~$45.72 (~0.097272 sh @ ask $470.02)
-- NVDA — buy ~$45.72 (~0.207686 sh @ ask $220.14)
-- MRVL — buy ~$45.72 (~0.216775 sh @ ask $210.91)
+- NVDA — buy ~$152.41 (~0.698167 sh @ ask $218.30)
+- AMD — buy ~$45.72 (~0.098239 sh @ ask $465.40)
+- DELL — buy ~$45.72 (~0.100309 sh @ ask $455.79)
 
-Dry-run cycle count is now **6** distinct dates (2026-08-24, 08-26, 08-27,
-08-28, 08-31, 09-01) against the **10** required before the live-order gate
-can open.
+Dry-run cycle count remains **6** distinct dates (2026-08-24, 08-26, 08-27,
+08-28, 08-31, 09-01 — today already counted from the earlier 02:57:23 cycle)
+against the **10** required before the live-order gate can open.
 
 _(Convenience view only. `trade_log.jsonl` is the source of truth; if the two
 disagree, trust `trade_log.jsonl`.)_
