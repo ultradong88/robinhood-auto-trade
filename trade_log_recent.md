@@ -1,9 +1,9 @@
-# 2026-09-03
+# 2026-09-04
 
-Phase B ran once today: **08:38:23 CT** (the standard 8:35am scheduled run).
+Phase B ran once today: **08:38:13 CT** (the standard 8:35am scheduled run).
 `execution.mode` is still `dry_run` in `risk_rules.json`, so the live-order
 gate was closed regardless of outcome (and would have been closed anyway —
-the dry-run cycle count is only 8 of the 10 required).
+the dry-run cycle count is only 9 of the 10 required).
 
 ## Account state
 
@@ -20,56 +20,55 @@ daily and 10% weekly). **Entries not halted.**
 
 ## Candidates considered
 
-`pending_proposals.jsonl` held the 2026-09-02 16:41:02 CT Phase A run
-(`proposal_date` 2026-09-02): five `direction: long` candidates — GTLB
-(medium), DELL (low, risk_flags: governance_history), VRT (high), MRVL
-(low, risk_flags: dilution_risk), NVDA (high) — plus six `direction: avoid`
-calls (GBTG, FRVO, INTC, MDB, AXTI, SPCX, not processed further) and no
-`exit_existing` candidates. None had a prior `risk_check`/`order` entry with
-matching `proposal_date`, so all five were evaluated fresh.
+`pending_proposals.jsonl` held the 2026-09-03 16:40:27 CT Phase A run
+(`proposal_date` 2026-09-03): seven `direction: long` candidates — AMD (low),
+DELL (low, risk_flags: governance_history), INTC (low, risk_flags:
+dilution_risk), MRVL (low, risk_flags: dilution_risk), NVDA (high), SPCX
+(low, risk_flags: dilution_risk), VRT (medium) — plus two `direction: avoid`
+calls (AXTI, VSXY, not processed further) and no `exit_existing` candidates.
+None had a prior `risk_check`/`order` entry with matching `proposal_date`, so
+all seven were evaluated fresh. Today is Friday, so no weekend-gap search
+applied.
 
-- **GTLB** — rejected: only 1 of 2 required consecutive cycles available
-  (`thesis_stability`, first appearance in `thesis_history.jsonl`).
-- **DELL** — thesis-stability stable (long across 2026-09-02 and 2026-09-01,
+- **AMD** — rejected: `thesis_stability` direction_unstable (long 2026-09-03,
+  but avoid on 2026-09-02 — thesis flipped).
+- **INTC** — rejected: same, direction_unstable (long 2026-09-03, avoid
+  2026-09-02).
+- **SPCX** — rejected: same, direction_unstable (long 2026-09-03, avoid
+  2026-09-02).
+- **DELL** — thesis-stability stable (long across 2026-09-03 and 2026-09-02,
+  conviction stable at low), but **rejected at the buy gate on two counts**:
+  price gapped +6.26% above thesis-time price ($492.20 → $522.99), and price
+  sat +14.03% above its 20-day moving average ($458.66) — both well outside
+  `entry_price_gap.max_pct` (3%) and `entry_extension.max_extension_pct`
+  (10%).
+- **MRVL** — thesis-stability stable (long across 2026-09-03 and 2026-09-02,
   conviction stable at low), but **rejected at the buy gate**: price gapped
-  +13.84% above thesis-time price ($425.00 → $483.81), driven by DELL's
-  post-earnings surge from $425.00 (09-01 close) to $492.20 (09-02 close) —
-  well outside `entry_price_gap.max_pct` (3%).
-- **NVDA** — thesis-stability stable (long across 2026-09-02 and 2026-09-01,
+  +3.52% above thesis-time price ($206.48 → $213.75), just outside the 3%
+  ceiling (extension and wash-sale checks were both clean — MRVL's realized
+  losses in account 506946300 are all 55+ days old, well outside the 30-day
+  lookback).
+- **NVDA** — thesis-stability stable (long across 2026-09-03 and 2026-09-02,
   conviction stable at high), but **rejected at the buy gate**: price gapped
-  +3.86% above thesis-time price ($217.44 → $225.84), just outside the 3%
+  +3.59% above thesis-time price ($224.41 → $232.46), just outside the 3%
   ceiling.
-- **VRT** — approved: thesis-stability stable (long across 2026-09-02 and
-  2026-09-01, conviction stable at high), buy gate clear (gap +0.61%,
-  extension -4.51% vs. 20d MA). Sized at **$152.41**.
-- **MRVL** — approved: thesis-stability stable (long across 2026-09-02 and
-  2026-09-01, conviction stable at low), buy gate clear (gap -3.89%,
-  extension -9.90% vs. 20d MA, wash-sale check clean — MRVL's realized losses
-  in account 506946300 are all 55+ days old, well outside the 30-day
-  lookback). The -3.89% gap was re-checked against the thesis's invalidation
-  criteria (Google-warrant dilution outpacing revenue, or further margin-
-  guidance cuts) via a fresh news search — nothing found touches either
-  trigger, so not invalidated. Sized at **$45.72** (risk_flags:
-  dilution_risk).
+- **VRT** — thesis-stability stable (long across 2026-09-03 and 2026-09-02,
+  conviction drifted medium→high, sized off the lower — medium), but
+  **rejected at the buy gate**: price gapped +6.57% above thesis-time price
+  ($256.70 → $273.56), well outside the 3% ceiling.
 
-VRT and MRVL together fill 2 of `max_concurrent_positions` 4, leaving
-$563.91 cash (80%/74% cash buffer after each, both above the 10% minimum).
+All four candidates that cleared thesis-stability (DELL, MRVL, NVDA, VRT)
+were priced off Tuesday 2026-09-02 closes, and each gapped up more than the
+Wednesday 2026-09-03 chip/AI-infrastructure rally allows — none reached
+ranking/sizing this cycle.
 
 ## Orders
 
-Two buy orders reviewed, both `dry_run` (no live orders placed —
-`execution.mode` is `dry_run`):
+No orders reviewed or placed — nothing cleared the buy gate.
 
-| Symbol | Side | Est. $ | Est. qty | Ask used |
-|---|---|---|---|---|
-| VRT | buy | $152.41 | 0.588842 | $258.83 |
-| MRVL | buy | $45.72 | 0.224801 | $203.38 |
-
-`review_equity_order` returned no blocking alerts for either.
-
-Dry-run cycle count now **8** distinct dates (2026-08-24, 08-26, 08-27,
-08-28, 08-31, 09-01, 09-02, 09-03) against the **10** required before the
-live-order gate can open.
+Dry-run cycle count now **9** distinct dates (2026-08-24, 08-26, 08-27,
+08-28, 08-31, 09-01, 09-02, 09-03, 09-04) against the **10** required before
+the live-order gate can open.
 
 _(Convenience view only. `trade_log.jsonl` is the source of truth; if the two
 disagree, trust `trade_log.jsonl`.)_
