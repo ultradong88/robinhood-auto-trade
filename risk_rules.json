@@ -6,7 +6,7 @@
   "starting_capital_usd_note": "Net deposits minus withdrawals, not live total_value -- excludes trading P&L so the loss-limit base doesn't drift with performance. Human updates by hand after each deposit/withdrawal.",
 
   "execution": {
-    "mode": "live",
+    "mode": "dry_run",
     "note": "mode must be manually changed from 'dry_run' to 'live' by the human. Claude must never change this value itself, and must refuse to place live orders while mode is 'dry_run'.",
     "dry_run_min_cycles_before_live": 10
   },
