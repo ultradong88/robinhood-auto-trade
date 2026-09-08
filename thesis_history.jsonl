@@ -105,3 +105,10 @@
 {"date": "2026-09-04", "timestamp": "16:41:16", "symbol": "INTC", "direction": "avoid", "conviction": "low"}
 {"date": "2026-09-04", "timestamp": "16:41:16", "symbol": "IOT", "direction": "avoid", "conviction": "low"}
 {"date": "2026-09-04", "timestamp": "16:41:16", "symbol": "SUNB", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "AMD", "direction": "long", "conviction": "low"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "ATAI", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "DELL", "direction": "long", "conviction": "high"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "DYN", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "INTC", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "TTAN", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-09-08", "timestamp": "16:35:29", "symbol": "VRT", "direction": "long", "conviction": "medium"}
