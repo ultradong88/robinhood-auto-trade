@@ -120,3 +120,9 @@
 {"date": "2026-09-09", "timestamp": "16:38:00", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
 {"date": "2026-09-09", "timestamp": "16:38:00", "symbol": "XP", "direction": "long", "conviction": "medium"}
 {"date": "2026-09-09", "timestamp": "16:38:00", "symbol": "SPCX", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "DELL", "direction": "long", "conviction": "low"}
+{"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "SKHY", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "NAVN", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "VRT", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "AXTI", "direction": "long", "conviction": "medium"}
