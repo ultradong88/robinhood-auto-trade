@@ -126,3 +126,12 @@
 {"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "VRT", "direction": "long", "conviction": "medium"}
 {"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
 {"date": "2026-09-10", "timestamp": "16:35:59", "symbol": "AXTI", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "DELL", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "KHC", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "SKHY", "direction": "long", "conviction": "low"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "TENB", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "INGM", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "KIM", "direction": "long", "conviction": "low"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "VRT", "direction": "long", "conviction": "low"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-11", "timestamp": "16:36:34", "symbol": "AXTI", "direction": "long", "conviction": "medium"}
