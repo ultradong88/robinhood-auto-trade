@@ -1,120 +1,110 @@
-# 2026-09-14
+# 2026-09-16
 
-Phase B ran once today: **08:43:12 CT** (the standard 8:35am scheduled run,
-Monday). `execution.mode` read fresh as **`live`**, and the dry-run cycle
+Phase B ran once today: **08:41:18 CT** (the standard 8:35am scheduled run,
+Wednesday). `execution.mode` read fresh as **`live`**, and the dry-run cycle
 count remains **10** distinct dates — still `>=` the 10 required, so the
 live-order gate stays open.
 
-## Market backdrop
-
-A broad tech/chip selloff hit the open: Anthropic's weekend essay calling
-for an industry-wide AI-development slowdown (safety concerns), plus rising
-oil prices and ~86% odds of a Wednesday Fed rate hike, dragged the
-Nasdaq -1.2% and chip names harder. Every candidate's large price move today
-was checked against this backdrop and each symbol's own thesis — see below.
-
 ## Account state (before this cycle's sells)
 
-Three open equity positions, all classified **held** (Step 4):
+Four open equity positions, all classified **held** (Step 4), filling all
+`max_concurrent_positions` (4) slots:
 
-- **VRT** — 0.330025 sh, avg cost $277.10, current $233.815.
-- **NVDA** — 0.413143 sh, avg cost $218.91, current $209.82.
-- **AXTI** — 1.351398 sh, avg cost $68.15, current $58.73.
+- **MRVL** — 0.196608 sh, avg cost $223.49, current $226.50 (gain).
+- **NVDA** — 0.413143 sh, avg cost $218.91, current $213.95 (loss).
+- **AXTI** — 1.351398 sh, avg cost $68.15, current $61.01 (loss).
+- **SKHY** — 0.248619 sh, avg cost $176.21, current $179.24 (gain).
 
 - **Stop-loss** (volatility_scaled):
-  - VRT: drawdown **15.62%** vs. computed `stop_pct_used` 10.12% (20-day
-    stdev 4.05% × 2.5) — **TRIGGERED, full position sold.**
-  - NVDA: drawdown 4.15% vs. `stop_pct_used` 7.21% — **not triggered**.
-  - AXTI: drawdown 13.82% vs. `stop_pct_used` 15.00% (clamped at the max) —
-    **not triggered** (close, but under the stop).
-- **Take-profit**: all three showing losses (VRT -15.62%, NVDA -4.15%, AXTI
-  -13.82%) — no tier eligible for any; hold/monitor.
-- **Conviction-trim** (enabled, today's raw thesis conviction): VRT
-  conviction=**low**, position $77.16 vs. low-tier target $43.88 — 75.84%
-  overweight, 3rd consecutive qualifying cycle (meets `min_low_conviction_cycles`
-  3) — **TRIGGERED, $33.28 trim ordered** — but rejected by the broker
-  (0 shares left; this cycle's stop-loss sale above already closed the
-  position to zero). NVDA and AXTI are conviction=medium today, so neither
-  qualifies regardless of overweight_pct — not triggered.
+  - MRVL, SKHY: showing gains — stop not computed (a non-positive drawdown
+    can never meet a positive stop_pct).
+  - NVDA: drawdown **2.27%** vs. computed `stop_pct_used` 7.35% (20-day
+    stdev 2.94% × 2.5) — **not triggered**.
+  - AXTI: drawdown **10.48%** vs. `stop_pct_used` 15.00% (clamped at the
+    max, 20-day stdev 6.77% × 2.5) — **not triggered**.
+- **Take-profit**: MRVL +1.35%, NVDA -2.27%, AXTI -10.48%, SKHY +1.72% — no
+  tier (15%/30%/50%) eligible for any; hold/monitor.
+- **Conviction-trim** (enabled, effective conviction from thesis-stability):
+  MRVL medium (underweight, -49.54%) and NVDA medium (~at target, +0.05%) —
+  not overweight. AXTI low, **86.68% overweight** its low-tier target — this
+  cycle *qualifies*, but only 1 consecutive qualifying cycle so far (the
+  most recent prior top-up, 2026-09-14, was conviction=medium, which broke
+  the streak) vs. `min_low_conviction_cycles` 3 — **not triggered**. SKHY
+  low, +0.90% overweight — not triggered.
 
-No `exit_existing` candidates.
-
-## Sell executed
-
-- **VRT** — stop-loss, full position sold: 0.330025 sh, market order filled
-  @ avg **$230.2601** (`order_id 6aa7f91c-ecd1-4a02-be05-ac7f1de2144b`),
-  realized loss **-$15.46**. Wash-sale check: both other linked accounts
-  (870285764, 506946300) hold zero VRT shares — no surviving replacement
-  position anywhere, so this is an ordinary closed round-trip, not a wash
-  sale; no flag added.
+No `exit_existing` candidates. No sells fired this cycle (no stop-loss
+trigger, no take-profit tier, no conviction-trim trigger).
 
 ## Loss-limit check
 
-Re-run fresh after the VRT sale: **-$15.46** realized today and this week
-(-2.03% / -2.03% of the $761.44 starting capital, against limits of 5%
-daily / 10% weekly). **Entries not halted.**
+$0.00 realized today, -$15.46 realized this week (the 2026-09-14 VRT
+stop-loss sale carried over; 0.00% / -2.03% of the $761.44 starting
+capital, against limits of 5% daily / 10% weekly). **Entries not halted.**
 
 ## Candidates considered
 
-`pending_proposals.jsonl` held 6 `direction: long` candidates (proposal_date
-2026-09-11, Friday's Phase A run — today is Monday, so a weekend-gap search
-ran for every one): DELL (medium), SKHY (low), KIM (low), VRT (low,
-held/top-up), NVDA (medium, held/top-up), AXTI (medium, held/top-up) — KHC,
-TENB, INGM were `direction: avoid` (not processed), no `exit_existing`. None
-had a prior `risk_check`/`order` entry with matching `proposal_date`, so all
-were evaluated fresh.
+`pending_proposals.jsonl` held 8 `direction: long` candidates (proposal_date
+2026-09-15, Tuesday's Phase A run): DELL (high), BWIN (medium), FPS (low),
+SRRK (low), MRVL (medium, held/top-up), NVDA (medium, held/top-up), AXTI
+(low, held/top-up), SKHY (low, held/top-up) — SPCX was `direction: avoid`
+(not processed), no `exit_existing`. None had a prior `risk_check`/`order`
+entry with matching `proposal_date`, so all were evaluated fresh. Today is
+Wednesday, not Monday, so no weekend-gap search ran.
 
-**VRT** was dropped immediately by the same-cycle sell-then-buy guard (its
-stop-loss and conviction-trim both fired this cycle) — not eligible for a
-top-up this cycle.
+**Capacity**: `open_slots = 4 max_concurrent_positions - 4 live positions = 0`.
+All 4 **new**-group candidates were rejected outright, before reaching
+thesis-stability or the buy gate:
 
-**Weekend-gap search** (DELL, SKHY, KIM, NVDA, AXTI): every symbol's
-weekend/Monday move traced back to the sector-wide macro story above, not
-anything specific to its own thesis or invalidation criteria — nothing
-dropped at this step (KIM's own news was just a routine conference
-presentation, unrelated to the REIT-sector/Treasury-yield move already
-priced into its thesis).
+- **DELL, BWIN, FPS, SRRK** — **rejected**: no open slots this cycle (4 of 4
+  max already held/approved) — skipped without a staleness re-check.
 
-**Thesis-stability** gate (required 2 consecutive cycles): **KIM failed**
-(`insufficient_history` — first appearance in `thesis_history.jsonl`); buy
-skipped, re-evaluated fresh next cycle. DELL, SKHY, NVDA, AXTI all passed,
-sizing off the lower conviction of the two cycles: DELL → low (today
-medium, prior low), SKHY → low (today low, prior medium), NVDA → medium
-(stable), AXTI → medium (stable).
+The **held** group (MRVL, NVDA, AXTI, SKHY) was unaffected and continued to
+thesis-stability and the buy gate.
+
+**Thesis-stability** gate (required 2 consecutive cycles): all four held
+top-ups passed (direction long across 2026-09-15 and 2026-09-14) — MRVL
+stable at medium, NVDA stable at medium, AXTI drifted (today low, prior
+medium — sized off the lower, low), SKHY stable at low.
 
 **Buy gate** (entry_price_gap max 3%, entry_extension max 10%, wash-sale,
 sell re-entry lock):
-- **DELL** (new) — **rejected**: despite a -6.03% price pullback (clean on
-  entry_price_gap), price still sat **+11.20%** above its 20-day moving
-  average ($479.37 → $533.06), outside `entry_extension.max_extension_pct`
-  (10%).
-- **SKHY**, **NVDA**, **AXTI** — all passed the hard ceilings, each with a
-  large negative (pullback) gap (-7.23%, -3.88%, -9.08%). Re-checked each
-  via web search against its own invalidation criteria — nothing found that
-  invalidates any of the three.
+- **AXTI** — **rejected**: price gapped **+5.91%** above thesis-time price
+  ($57.70 → $61.11), outside `entry_price_gap.max_pct` (3%) — top-up
+  skipped this cycle.
+- **MRVL, NVDA, SKHY** — all passed the hard ceilings. MRVL (+2.30% gap) and
+  SKHY (+2.57% gap) were non-trivial and re-checked via web search against
+  their own thesis invalidation criteria — MRVL's rally traced to
+  broad semiconductor-sector strength (no hyperscaler capex cut, earnings
+  miss, governance flag, or dilutive raise found); SKHY's traced to
+  DRAM-shortage pricing power, the existing buyback program, and eased
+  labor tensions (no KRX overheating correction, capex cut, litigation
+  escalation, or earnings disappointment found) — neither invalidated.
+  NVDA's +0.85% gap was trivial, no re-check needed.
 
-Wash-sale check (all three linked accounts, span=month): zero closing
-trades found for DELL/SKHY/NVDA/AXTI in any account — guard clear.
+Wash-sale check (all three linked accounts, span=month): zero loss-realizing
+closes found for MRVL/NVDA/AXTI/SKHY in any account — guard clear for all
+four.
 
 ## Orders — LIVE
 
 Ranked by `rank_candidates.py`/`position_sizing.py` (re-pulled fresh
-total_value $730.15 and cash $564.09 after the VRT sale) in priority order
-AXTI (medium, top-up) > NVDA (medium, top-up) > SKHY (low, new); DELL and
-KIM already excluded above.
+total_value $736.39 and cash $476.34 — unchanged, no sells this cycle) in
+priority order MRVL (medium, top-up) > NVDA (medium, top-up) > SKHY (low,
+top-up); AXTI already excluded above.
 
-- **AXTI** — top-up **rejected**: headroom only $7.80, below the $8.76
-  min-top-up threshold.
-- **NVDA** — top-up **rejected**: headroom only $1.02, far below threshold.
-- **SKHY** — new entry **approved** for **$43.81** (6% of $730.15
-  total_value, low conviction). `review_equity_order` came back with empty
+- **MRVL** — top-up **approved** for **$43.77** (headroom to its
+  medium-tier target of $88.37). `review_equity_order` came back with empty
   `order_checks` (no blocking alert), and with `execution.mode == "live"`
   and the dry-run cycle count at 10/10, **the live-order gate was open**.
-  Market order **filled**: 0.248619 sh @ avg **$176.2129**
-  (`order_id 6aa7f9e8-859c-45f5-b689-4836cefb1e05`).
+  Market order **filled**: 0.191251 sh @ avg **$228.8607**
+  (`order_id 6aaa9c66-f219-48fb-aa9a-aafb18d7f79e`).
+- **NVDA** — top-up **rejected**: headroom -$0.04, already at/above its
+  medium-tier target.
+- **SKHY** — top-up **rejected**: headroom -$0.40, already at/above its
+  low-tier target.
 
-`concurrent_positions_after_final` 3 (VRT's slot closed, SKHY's slot
-opened), `cash_remaining_final` $520.28.
+`concurrent_positions_after_final` 4 (no slot change), `cash_remaining_final`
+$432.57.
 
 _(Convenience view only. `trade_log.jsonl` is the source of truth; if the two
 disagree, trust `trade_log.jsonl`.)_
