@@ -154,3 +154,12 @@
 {"date": "2026-09-15", "timestamp": "16:39:01", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
 {"date": "2026-09-15", "timestamp": "16:39:01", "symbol": "AXTI", "direction": "long", "conviction": "low"}
 {"date": "2026-09-15", "timestamp": "16:39:01", "symbol": "SKHY", "direction": "long", "conviction": "low"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "AXTI", "direction": "long", "conviction": "high"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "MRVL", "direction": "long", "conviction": "low"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "SKHY", "direction": "long", "conviction": "low"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "BWIN", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "DELL", "direction": "long", "conviction": "high"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "FANG", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "KNX", "direction": "avoid", "conviction": "low"}
+{"date": "2026-09-16", "timestamp": "16:39:42", "symbol": "SPCX", "direction": "avoid", "conviction": "low"}
