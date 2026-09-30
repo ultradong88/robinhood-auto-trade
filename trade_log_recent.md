@@ -1,25 +1,22 @@
-# 2026-09-29
+# 2026-09-30
 
-Phase B ran once today (~08:35 CT, Tuesday). `execution.mode` is `live` and the dry-run cycle count is 10 (>= 10 required), so the live-order gate was open.
+**No orders placed today.** Mode is live; nothing qualified.
 
 ## Loss-limit check
-Daily P&L 0.00%, weekly +0.42% — entries not halted.
+- Daily P&L 0.00%, weekly +0.42% — entries not halted.
 
-## Held positions (5 of 5 slots)
-- **MRVL** — trailing-high stop (8.82%), drawdown 3.65%; +13.5% gain, tier 15% already fired. Holding.
-- **AXTI** — trailing-high stop (15%), drawdown 4.07%; +15.9% gain, tier 15% already fired. Holding.
-- **NVDA** — +4.96%, in gain so stop not computed. Holding.
-- **SKHY** — +4.20%, holding.
-- **AAPL** — +0.05%, holding.
-- No stop-loss, take-profit, or conviction-trim triggered; no sells.
+## Held positions (stop-loss / take-profit)
+- MRVL: +15.14% vs cost, trailing-high stop 9.03% (drawdown 2.27%) — holding; 0.15 tier already fired, next 0.30.
+- AXTI: +17.10%, trailing-high stop 15% (drawdown 3.80%) — holding; 0.15 tier already fired.
+- NVDA: +4.60%, in gain so stop not computed — holding.
+- SKHY: +5.62%, in gain so stop not computed — holding.
+- AAPL: -0.26%, stop 5% — holding.
+- Conviction trim: none qualified.
 
-## Buy candidates
-- **AAPL** top-up — approved, **$47.76 bought (filled 0.143041 sh @ $333.89)**.
-- **MRVL** top-up — sized at $18.82, but on the fresh ask ($258.68) price was 10.24% above its 20-day average (limit 10%) — skipped, no order.
-- **AXTI** top-up — rejected: 17.3% above 20-day average and sell re-entry lock (sold 2026-09-25 at $76.33, 2 of 10 days).
-- **NVDA** top-up — rejected: already at/above target size.
-- **SKHY** top-up — rejected: $1.25 below the $5 minimum top-up.
-- **MU, INTC, AMD, DELL** (new) — rejected: no open slots (5 of 5).
-
-## Orders placed
-- AAPL buy $47.76 — filled.
+## Candidates
+- MU, AMD, DELL, KMX, IOVA (new): rejected, no open slots (5 of 5 held).
+- MRVL top-up: rejected, price 10.47% above its 20-day average (max 10%).
+- AXTI top-up: rejected, price 16.95% above its 20-day average (max 10%).
+- NVDA top-up: rejected, already above target size.
+- AAPL top-up: rejected, $0.57 headroom is below the $9.41 minimum.
+- SKHY top-up: rejected, $0.77 headroom is below the $5.00 minimum.
