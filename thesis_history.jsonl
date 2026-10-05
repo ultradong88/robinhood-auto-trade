@@ -302,3 +302,17 @@
 {"date": "2026-10-02", "timestamp": "16:32:19", "symbol": "AXTI", "direction": "long", "conviction": "medium"}
 {"date": "2026-10-02", "timestamp": "16:32:19", "symbol": "SKHY", "direction": "long", "conviction": "medium"}
 {"date": "2026-10-02", "timestamp": "16:32:19", "symbol": "AAPL", "direction": "long", "conviction": "low"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "PTC", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "RXO", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "TWLO", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "FORM", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "SPCX", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "AMD", "direction": "long", "conviction": "low"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "DELL", "direction": "long", "conviction": "high"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "INTC", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "MU", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "MRVL", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "NVDA", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "AXTI", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "SKHY", "direction": "long", "conviction": "low"}
+{"date": "2026-10-05", "timestamp": "16:34:06", "symbol": "AAPL", "direction": "long", "conviction": "medium"}
