@@ -1,21 +1,19 @@
-# 2026-10-05
+# 2026-10-06
 
-**Loss-limit check:** daily 0.00%, weekly 0.00% realized — entries not halted.
+**Loss-limit check:** daily 0.00%, weekly 0.03% realized — entries not halted.
 
 ## Held positions (stop-loss / take-profit / trim)
-- MRVL: +19.5% on cost; trailing-high drawdown 3.1% vs 7% stop (fallback); tier 0.15 already fired, 0.30 not reached — holding.
-- AXTI: +27.3%; trailing-high drawdown 1.9% vs 7% stop (fallback); tier 0.15 fired, 0.30 not reached — holding.
-- NVDA: +7.7% — holding (medium conviction, overweight but not low).
-- SKHY: +9.4% — holding.
-- AAPL: +0.6% — **conviction trim triggered** (low conviction, 96% overweight, 3rd consecutive cycle); sold 0.138 sh.
+- MRVL: +27.2% on cost; at its trailing high, no stop; tier 0.15 already fired, 0.30 not reached — holding.
+- AXTI: +29.2%; trailing-high drawdown 0.9% vs 7% stop (fallback); tier 0.15 fired, 0.30 not reached — holding.
+- NVDA: +9.5% — holding.
+- SKHY: +2.7% — holding; low conviction, 94.5% overweight (cycle 1 of 3 for a trim).
+- AAPL: -0.2%; drawdown 0.2% vs 5% stop — holding.
 
 ## New-entry / top-up candidates
-- New (MU, SPCX, INTC, AMD, DELL): rejected — no open slots (5 of 5 held).
-- SKHY top-up: approved, $47.79 (entry gate passed, weekend news clean).
-- MRVL top-up: rejected — 10.2% above 20-day avg, sell re-entry lock active.
-- AXTI top-up: rejected — price gap 5.1%, extension 20.4%, re-entry lock.
-- NVDA top-up: rejected — above target size. AAPL: no same-cycle top-up after trim.
+- New (MU, DELL, FORM, AMD): rejected — no open slots (5 of 5 held).
+- MRVL top-up: rejected — price gap 6.5% and 16.2% above 20-day average.
+- AXTI top-up: rejected — 20.0% above 20-day average, sell re-entry lock.
+- NVDA, SKHY top-ups: rejected — already above target size. AAPL: headroom $0.71, below min top-up.
 
-## Orders placed (live)
-- SELL AAPL 0.138 sh @ ~$335.32 (~$46.27), filled.
-- BUY SKHY $47.79 (0.2477 sh @ ~$192.93), filled.
+## Orders placed
+- None.
