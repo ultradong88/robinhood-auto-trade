@@ -1,18 +1,19 @@
-# 2026-10-09
+# 2026-10-12
 
-**Loss-limit check:** daily P&L -0.70%, weekly +2.48% — entries allowed.
+**Loss-limit check:** passed — daily +0.53%, weekly +2.97%; entries not halted.
 
 **Held positions**
-- SKHY: drawdown 10.12% vs stop 8.90% — **stop-loss triggered**, sold full position (0.2676 sh @ ~$171.80, filled, realized -$5.31). No wash-sale flag (nothing left held in any linked account).
-- MRVL: stop 8.33% (drawdown 1.19%) not triggered; no tier; holding.
-- AXTI: stop 15.00% (drawdown 0.58%) not triggered; no tier; holding.
-- NVDA: gain +5.0%, stop not computed; no tier; holding.
-- AAPL: stop 5.00% (drawdown 0.17%) not triggered; no tier; holding.
+- MRVL: stop 8.15% (avg-cost basis), drawdown 1.26% — holding. No take-profit tier.
+- AXTI: stop 15.0% (cap), drawdown 13.9% — holding, but close to the stop. No take-profit tier.
+- NVDA: up 3.4%, stop not applicable. Low conviction for a 4th straight cycle and ~243% overweight, so the **conviction trim fired: sold $112.15 (0.492 sh) at ~$227.66, filled, +$4.00 realized**.
+- AAPL: up 2.0%, holding.
 
-**Candidates (all top-ups of held positions)**
-- MRVL (medium): approved, top-up $47.08, bought (0.1724 sh @ ~$273.13, filled).
-- AXTI (medium): rejected — ask $74.92 is 4.55% above thesis price $71.66 (max 3%).
-- NVDA, AAPL (low): rejected — at/above target size.
-- SKHY: not eligible for a same-cycle top-up (stop-loss fired).
+**Candidates**
+- AXTI top-up: **approved and bought $10.79** (filled at ~$64.80). Weekend-news check found nothing contradicting the thesis.
+- MRVL top-up: already at target size — no buy.
+- AAPL top-up: blocked by sell re-entry lock (price above Oct 5 trim price).
+- SKHY: blocked by wash-sale guard (stop-loss at a loss on Oct 9).
+- MU, DELL: blocked by thesis stability (thesis flipped from "avoid" on Oct 8).
+- NVDA top-up: not eligible (trim fired this cycle).
 
-**Orders placed:** SELL SKHY (stop-loss, full position); BUY MRVL $47.08.
+**Orders placed:** NVDA sell $112.15 (trim); AXTI buy $10.79 (top-up). Both live, both filled.
