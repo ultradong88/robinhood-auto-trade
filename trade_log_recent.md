@@ -1,19 +1,18 @@
-# 2026-10-13
+# 2026-10-14
 
-**Loss-limit check:** daily realized -3.58% (limit 5%), weekly -0.60% (limit 10%) — entries not halted.
+- **Loss-limit check:** daily realized $0.00 (0.00%), weekly -$28.54 (-3.75%). Entries not halted.
 
-**Held positions**
-- MRVL: down 8.87% from average cost vs a 7.09% volatility-scaled stop — **stop-loss triggered, sold full position** (filled ~$251.74).
-- AXTI: down 18.17% vs a 15% stop (max) — **stop-loss triggered, sold full position** (filled ~$60.61).
-- NVDA: +0.13%, holding; no take-profit tier; not overweight enough to trim.
-- AAPL: +3.94%, holding; no tier fired; overweight ~9% (below 25% trim trigger).
+## Held positions
+- NVDA: +0.77% on cost, gain so no stop computed; no take-profit tier; holding.
+- AAPL: +3.42% on cost, no stop computed; no tier; holding.
+- DELL: -5.04% on cost vs 9.62% volatility stop; not triggered; holding.
 
-**Candidates**
-- DELL (new, medium): approved and sized at $90.73 — **bought** (0.161337 sh @ ~$562.36).
-- AMD (new): rejected — thesis flipped (avoid on 10-09), stability gate.
-- VST (new): rejected — thesis flipped (avoid on 10-08), stability gate.
-- MRVL, AXTI (top-ups): dropped — stop-loss fired this cycle.
-- AAPL (top-up): rejected — sell re-entry lock (price above the 10-05 trim price).
-- NVDA (top-up): rejected — headroom $0.16, below the $5 minimum.
+## Candidates
+- AMD (new, low): approved, $45.13 buy.
+- MRVL (new): rejected - wash-sale guard and sell re-entry lock (stopped out yesterday).
+- AAPL top-up: rejected - re-entry lock, already above target.
+- NVDA top-up: rejected - already at target.
+- DELL top-up: rejected - $4.09 headroom below $9.03 minimum.
 
-**Orders placed (live):** SELL MRVL (full), SELL AXTI (full), BUY DELL $90.73.
+## Orders placed
+- BUY AMD $45.13 (0.076966 sh @ $586.36), filled.
