@@ -1,18 +1,18 @@
-# 2026-10-14
+# 2026-10-15
 
-- **Loss-limit check:** daily realized $0.00 (0.00%), weekly -$28.54 (-3.75%). Entries not halted.
+**Loss-limit check:** passed after today's sell. Daily realized -$16.21 (-2.13%), weekly -$44.76 (-5.88%). Entries not halted.
 
-## Held positions
-- NVDA: +0.77% on cost, gain so no stop computed; no take-profit tier; holding.
-- AAPL: +3.42% on cost, no stop computed; no tier; holding.
-- DELL: -5.04% on cost vs 9.62% volatility stop; not triggered; holding.
+**Positions**
+- DELL: down 17.24% from average cost against a 9.32% volatility-scaled stop. **Stop-loss triggered. Sold the full 0.161337 shares at about $461.92 (filled).** Not flagged as a wash sale.
+- AMD: down 8.28% against a 8.91% stop. Holding, close to the stop.
+- NVDA: down 3.87% against a 5% stop. Holding.
+- AAPL: up 3.69%. Holding, stop not computed. No take-profit tier reached.
 
-## Candidates
-- AMD (new, low): approved, $45.13 buy.
-- MRVL (new): rejected - wash-sale guard and sell re-entry lock (stopped out yesterday).
-- AAPL top-up: rejected - re-entry lock, already above target.
-- NVDA top-up: rejected - already at target.
-- DELL top-up: rejected - $4.09 headroom below $9.03 minimum.
+**Candidates**
+- DELL top-up: dropped, stop-loss fired this cycle.
+- AAPL top-up: blocked by sell re-entry lock (price above the Oct 5 trim price).
+- AMD top-up: $2.68 headroom, below the $5 minimum. No order.
+- NVDA top-up: $0.68 headroom, below the $5 minimum. No order.
+- MRVL, MMED, FAST, S: avoid. Not processed.
 
-## Orders placed
-- BUY AMD $45.13 (0.076966 sh @ $586.36), filled.
+**Orders placed:** SELL DELL, full position, about $74.5.
