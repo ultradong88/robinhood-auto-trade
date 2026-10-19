@@ -1,20 +1,16 @@
-# 2026-10-16
+# 2026-10-19
 
-**Loss-limit check:** passed. Daily realized $0 (0.00%), weekly realized -$39.44 (-5.18%). Entries not halted.
+**Loss-limit check:** daily 0.0%, weekly -5.7% (limits 5% / 10%) -- entries not halted.
 
-**Positions** (no sells today)
-- NVDA: down 2.84% vs 5% stop. Holding.
-- AAPL: up 3.26%. Holding, stop not computed. No take-profit tier reached.
-- AMD: down 6.92% vs 8.39% stop. Holding, getting close.
-- INTC: down 1.02% vs 10.37% stop. Holding. About 125% over its low-conviction target; trim streak 1 of 3.
-- MU: down 0.96% vs 7.19% stop. Holding. About 125% over its low-conviction target; trim streak 1 of 3.
+**Held positions (stop-loss / take-profit):** no triggers, no orders.
+- NVDA: -3.0% vs 5.0% stop, holding
+- AAPL: +2.8% gain, stop not computed, holding
+- AMD: -6.7% vs 8.83% stop, holding
+- INTC: -0.2% vs 10.50% stop, holding
+- MU: -0.4% vs 7.58% stop, holding
 
-**Candidates**
-- INTC top-up: rejected, thesis not long on 2 consecutive cycles (avoid on 2026-10-08).
-- MU top-up: rejected, already above target size.
-- AMD top-up: $2.02 headroom, below $5 minimum.
-- NVDA top-up: $0.17 headroom, below $5 minimum.
-- AAPL top-up: rejected, already above target size.
-- DELL, CCC, SKHY: avoid. Not processed.
+**Conviction trim:** INTC and MU are ~126% over their low-conviction target (streak 2 of 3 cycles) -- not yet trimmed. Others hold.
+
+**Top-up candidates:** all rejected -- INTC, MU, AAPL already over target size; AMD ($2.00) and NVDA ($0.32) headroom below the $5 minimum.
 
 **Orders placed:** none.
