@@ -1,16 +1,15 @@
-# 2026-10-19
+# 2026-10-20
 
-**Loss-limit check:** daily 0.0%, weekly -5.7% (limits 5% / 10%) -- entries not halted.
+**Loss-limit check:** daily -1.06%, weekly -3.19% — entries not halted.
 
-**Held positions (stop-loss / take-profit):** no triggers, no orders.
-- NVDA: -3.0% vs 5.0% stop, holding
-- AAPL: +2.8% gain, stop not computed, holding
-- AMD: -6.7% vs 8.83% stop, holding
-- INTC: -0.2% vs 10.50% stop, holding
-- MU: -0.4% vs 7.58% stop, holding
+**Sells (live, all filled)**
+- AMD: stop-loss triggered (drawdown 9.64% vs 6.65% stop) — sold full position, 0.076966 sh @ ~$529.81.
+- MU: conviction trim (3rd consecutive low-conviction overweight cycle) — sold ~$53.57 (0.060487 sh @ ~$892.99). Wash-sale flag (informational).
+- INTC: conviction trim — sold ~$51.06 (0.571268 sh @ ~$90.00). Wash-sale flag (informational).
 
-**Conviction trim:** INTC and MU are ~126% over their low-conviction target (streak 2 of 3 cycles) -- not yet trimmed. Others hold.
+**Holding, no action:** NVDA (drawdown 4.02% vs 5% stop), AAPL (+2.5%). No take-profit tiers reached.
 
-**Top-up candidates:** all rejected -- INTC, MU, AAPL already over target size; AMD ($2.00) and NVDA ($0.32) headroom below the $5 minimum.
-
-**Orders placed:** none.
+**Buy candidates**
+- AAPL top-up (medium conviction): approved $38.28 — bought 0.112277 sh @ ~$340.70 (filled).
+- NVDA top-up: rejected — $0.28 headroom below $5 minimum.
+- AMD, MU, INTC top-ups: skipped — sold/trimmed this cycle.
