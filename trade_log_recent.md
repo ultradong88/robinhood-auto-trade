@@ -1,18 +1,17 @@
-# 2026-10-21
+# 2026-10-22
 
-**Loss-limit check:** daily 0.00%, weekly -3.19% — entries not halted.
+**Loss-limit check:** daily 0.0%, weekly -1.06% — entries allowed.
 
-**Positions (no sells today):**
-- NVDA: -0.83% vs avg cost, stop 5.00% — holding.
-- AAPL: +0.77% — holding.
-- INTC: -1.63% vs avg cost, stop 7.35% — holding.
-- MU: +0.61% — holding.
-- No take-profit tiers reached; no conviction trims triggered.
+**Held positions (no stops, tiers, or trims triggered):**
+- NVDA: -2.1% vs avg cost, stop 5.0% — holding.
+- AAPL: +2.6%, in gain so no stop computed — holding. Overweight vs low-conviction target (trim count 1 of 3).
+- INTC: -6.7%, stop 10.0% — holding.
+- MU: -2.2%, stop 7.4% — holding.
 
-**Buy candidates**
-- HAS (new, medium): rejected — only 1 of 2 required thesis cycles (stability gate).
-- AAPL top-up: rejected — $0.96 headroom below $8.76 minimum.
-- NVDA top-up: rejected — already at/above target size.
-- INTC, MU top-ups: rejected — wash-sale guard and sell re-entry lock (trimmed at a loss 2026-10-20).
+**Candidates:**
+- VST (new): approved, sized $43.67 (stability window gave low conviction) — **bought, filled**.
+- QGEN (new): rejected — thesis direction flipped (avoid yesterday).
+- NVDA / AAPL top-ups: rejected — already at or above target.
+- INTC / MU top-ups: rejected — wash-sale guard (loss sales on 2026-10-20).
 
-**Orders placed:** none.
+**Orders placed:** BUY VST $43.67 (0.288212 sh @ $151.52, filled).
