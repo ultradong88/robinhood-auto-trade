@@ -1,19 +1,16 @@
-# 2026-10-23
+# 2026-10-26
 
-**Loss-limit check:** daily 0.0%, weekly -1.06% — entries allowed.
+**Loss-limit check:** passed (daily 0.00%, weekly -1.96%); entries not halted.
 
-**Held positions:**
-- NVDA: -5.1% vs avg cost, stop 5.0% — **stop-loss triggered, sold full position** (0.202529 sh @ $211.12, filled).
-- INTC: -9.5%, stop 7.9% — **stop-loss triggered, sold full position** (0.487381 sh @ $85.18, filled).
-- AAPL: +4.2%, in gain so no stop computed — holding. Still overweight vs low-conviction target (trim count 2 of 3).
-- MU: -4.8%, stop 7.7% — holding.
-- VST: -9.8%, stop 11.4% — holding.
-- No take-profit tiers fired.
+**Held positions**
+- AAPL: gaining +2.3%, no stop; no take-profit tier. Conviction trim fired (low conviction, ~103% over target, 3rd straight cycle): sold 0.12975 sh (~$44.72) at $344.28 — filled.
+- MU: -2.0% vs 7.79% stop, holding; at target size.
+- VST: -7.35% vs 11.11% stop, holding; just under target.
 
-**Candidates:**
-- NVDA / INTC top-ups: dropped — stop-loss fired this cycle.
-- AAPL top-up: rejected — already above target size.
-- MU top-up: rejected — wash-sale guard (loss sale 2026-10-20).
-- VST top-up: rejected — $3.87 headroom is below the $5 minimum top-up.
+**Candidates**
+- AAPL top-up: not eligible (trimmed this cycle).
+- MU top-up: rejected, already at/above target.
+- VST top-up: rejected, $2.82 headroom below $5.00 minimum.
+- CART (new): rejected, thesis stability needs 2 cycles (only 1).
 
-**Orders placed:** SELL NVDA (full, ~$42.76), SELL INTC (full, ~$41.51). No buys.
+**Orders placed:** 1 — sell AAPL ~$44.72 (conviction trim).
