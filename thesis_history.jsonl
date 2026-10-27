@@ -475,3 +475,10 @@
 {"date": "2026-10-26", "timestamp": "16:32:30", "symbol": "AAPL", "direction": "long", "conviction": "medium"}
 {"date": "2026-10-26", "timestamp": "16:32:30", "symbol": "MU", "direction": "long", "conviction": "low"}
 {"date": "2026-10-26", "timestamp": "16:32:30", "symbol": "VST", "direction": "long", "conviction": "low"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "AAPL", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "MU", "direction": "long", "conviction": "low"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "VST", "direction": "long", "conviction": "low"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "TSLA", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "SKHY", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "AMD", "direction": "long", "conviction": "low"}
+{"date": "2026-10-27", "timestamp": "16:32:23", "symbol": "RRC", "direction": "avoid", "conviction": "low"}
