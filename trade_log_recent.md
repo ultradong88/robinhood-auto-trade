@@ -1,19 +1,17 @@
-# 2026-10-29
+# 2026-10-30
 
-**Loss-limit check:** daily 0.00%, weekly -0.73% — entries not halted.
+**Loss-limit check:** passed. Daily P&L 0.0%, weekly +0.18%. Entries not halted.
 
-**Held positions**
-- AAPL: +2.89% on cost, gain so no stop computed; no take-profit tier hit; holding.
-- MU: +4.54% on cost, no stop computed; no tier hit; holding.
-- VST: -5.66% on cost vs 11.29% volatility-scaled stop; not triggered; holding.
-- Conviction trim: none triggered (MU +7.6% over target, below 25% trigger).
+**Held positions (stop-loss / take-profit / trim):**
+- AAPL: +1.67% on average cost, so the stop is not computed. No take-profit tier fired. Holding.
+- MU: -2.73%, stop 9.10%. Not triggered. Holding.
+- VST: -8.79%, stop 11.31%. Not triggered. Holding.
+- No conviction trims triggered.
 
-**Candidates**
-- AAPL top-up: rejected — sell re-entry lock (3 of 10 days).
-- MU top-up: rejected — wash-sale guard and re-entry lock.
-- VST top-up: rejected — $2.34 below $5.00 minimum top-up.
-- AMD new entry: rejected — wash-sale guard (loss sale 2026-10-20).
-- MRVL new entry: rejected — thesis stability, only 1 of 2 cycles.
-- DELL new entry: rejected — thesis direction unstable (avoid on 2026-10-22).
+**Candidates:**
+- BHC (new): rejected. Thesis flipped from avoid on 10-28 to long on 10-29, so it fails the 2-cycle stability gate.
+- AAPL (top-up): rejected. Sell re-entry lock is active after the 10-26 trim; price is above the 344.00 sell price (4 of 10 days).
+- MU (top-up): rejected. Wash-sale guard (loss sale on 2026-10-20).
+- VST (top-up): rejected. Sized off low conviction, headroom $3.40 is below the $5.00 minimum top-up.
 
 **Orders placed:** none.
