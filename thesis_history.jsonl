@@ -500,3 +500,11 @@
 {"date": "2026-10-29", "timestamp": "16:33:07", "symbol": "VST", "direction": "long", "conviction": "medium"}
 {"date": "2026-10-29", "timestamp": "16:33:07", "symbol": "MU", "direction": "long", "conviction": "low"}
 {"date": "2026-10-29", "timestamp": "16:33:07", "symbol": "AAPL", "direction": "long", "conviction": "medium"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "MRVL", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "AMD", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "AVPT", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "GPN", "direction": "avoid", "conviction": "low"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "ADT", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "AAPL", "direction": "long", "conviction": "low"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "MU", "direction": "long", "conviction": "low"}
+{"date": "2026-10-30", "timestamp": "16:32:23", "symbol": "VST", "direction": "long", "conviction": "low"}
