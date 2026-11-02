@@ -1,17 +1,17 @@
-# 2026-10-30
+# 2026-11-02
 
-**Loss-limit check:** passed. Daily P&L 0.0%, weekly +0.18%. Entries not halted.
-
-**Held positions (stop-loss / take-profit / trim):**
-- AAPL: +1.67% on average cost, so the stop is not computed. No take-profit tier fired. Holding.
-- MU: -2.73%, stop 9.10%. Not triggered. Holding.
-- VST: -8.79%, stop 11.31%. Not triggered. Holding.
-- No conviction trims triggered.
-
-**Candidates:**
-- BHC (new): rejected. Thesis flipped from avoid on 10-28 to long on 10-29, so it fails the 2-cycle stability gate.
-- AAPL (top-up): rejected. Sell re-entry lock is active after the 10-26 trim; price is above the 344.00 sell price (4 of 10 days).
-- MU (top-up): rejected. Wash-sale guard (loss sale on 2026-10-20).
-- VST (top-up): rejected. Sized off low conviction, headroom $3.40 is below the $5.00 minimum top-up.
-
-**Orders placed:** none.
+- **Loss-limit check:** daily 0.0%, weekly 0.0% — entries not halted.
+- **Stop-loss / take-profit (all holding, nothing triggered):**
+  - MRVL: -1.98% vs stop 13.66%
+  - NVDA: +0.39% (gain, no stop)
+  - AAPL: +1.04% (gain, no stop)
+  - INTC: -1.68% vs stop 15.0%
+  - MU: -3.06% vs stop 9.69%
+  - VST: -7.90% vs stop 11.49%
+- **Conviction trim:** AAPL, MU, VST not overweight — holding.
+- **Candidates (held top-ups, all low conviction):**
+  - VST: rejected — top-up $2.77 below $5.00 minimum.
+  - MU: rejected — already at/above target size.
+  - AAPL: rejected — already at/above target size.
+- MRVL/AMD/AVPT/GPN/ADT are "avoid" proposals, not processed.
+- **Orders placed:** none.
