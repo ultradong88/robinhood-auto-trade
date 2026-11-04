@@ -13,7 +13,7 @@
 
   "universe": {
     "watchlist_name": "Tech",
-    "watchlist_max_candidates": 25,
+    "watchlist_max_candidates": 35,
     "supplementary_scan_id": "1d5140ed-8ce0-4552-9532-e4354cbc8609",
     "supplementary_scan_max_candidates": 5,
     "supplementary_scan_note": "Robinhood scan -- define whatever screening conditions you like (relative volume, market cap, RSI, etc.) via the Robinhood MCP's create_scan tool, then paste its scan_id here. Additive to watchlist_max_candidates, not shared with it -- the watchlist's own slots are never crowded out by scan results.",
