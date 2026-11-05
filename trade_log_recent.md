@@ -1,21 +1,13 @@
-# 2026-11-04
+# 2026-11-05
 
-**Loss-limit check:** daily -1.6% (-$11.96 realized), weekly -1.6% — entries not halted.
+**Loss-limit check:** HALTED. Realized P&L today -$77.03 (-10.1% of starting capital, limit 5%); week -$88.99 (-11.7%, limit 10%). All new entries and top-ups blocked.
 
-**Held positions (stop / take-profit):**
-- MU: -10.1% vs avg cost, stop 10.0% — **stop-loss triggered, sold in full** (0.049147 sh @ ~$819.37, ~$40)
-- VST: -17.0%, stop 9.6% — **stop-loss triggered, sold in full** (0.288212 sh @ ~$125.83, ~$36)
-- MRVL: -13.5%, stop 14.0% — holding (close to stop)
-- NVDA: -2.4%, stop 5.1% — holding
-- INTC: -10.1%, stop 15.0% — holding
-- AAPL: +2.2% (gain, stop not computed) — holding
-- No take-profit tiers fired.
+**Open positions / sells (live, all filled):**
+- MRVL: stop-loss triggered (down 20.0% vs. 14.2% stop). Sold 1.288833 sh @ ~$148.68.
+- NVDA: stop-loss triggered (down 6.3% vs. 5.3% stop). Sold 1 sh @ ~$193.78.
+- INTC: Phase A exit_existing. Sold 1.538123 sh @ ~$55.48 (down 14.7%, stop of 15% not hit).
+- AAPL: up 3.7%, no stop or take-profit tier; trim not triggered. Holding.
 
-**Conviction trim:** MRVL, NVDA, INTC still well overweight vs the low-conviction target (~$40) — cycle 2 of 3, no trim yet. AAPL near target.
+**Buy candidates:** LLY, XOM, PG, V (new) and AAPL (top-up) all rejected: loss-limit halt.
 
-**Top-up candidates (all rejected):**
-- MRVL, NVDA, INTC: wash-sale guard (recent loss sales)
-- AAPL: price 4.7% above thesis price and sell re-entry lock
-- MU, VST: stopped out this cycle — no same-cycle top-up
-
-**Orders placed:** 2 sells (MU ~$40, VST ~$36), both filled. No buys.
+**Orders placed:** 3 sells (MRVL ~$191.6, NVDA ~$193.8, INTC ~$85.3). No buys.
