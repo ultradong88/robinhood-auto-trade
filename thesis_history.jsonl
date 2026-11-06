@@ -560,3 +560,15 @@
 {"date": "2026-11-05", "timestamp": "16:32:42", "symbol": "RYTM", "direction": "avoid", "conviction": "low"}
 {"date": "2026-11-05", "timestamp": "16:32:42", "symbol": "SSNC", "direction": "avoid", "conviction": "low"}
 {"date": "2026-11-05", "timestamp": "16:32:42", "symbol": "CVI", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "LIN", "direction": "long", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "HD", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "COST", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "PG", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "LLY", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "V", "direction": "long", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "SKHY", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "AAPL", "direction": "long", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "SPCX", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "INTC", "direction": "exit_existing", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "AMD", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-06", "timestamp": "16:32:40", "symbol": "ROKU", "direction": "avoid", "conviction": "low"}
