@@ -1,15 +1,18 @@
-# 2026-11-12
+# 2026-11-16
 
-- **Loss-limit check:** Daily realized P&L was $0.00 (0.00%) and weekly was +$4.14 (+0.54%). Entries were **not halted**.
-- **Held positions (stop-loss/take-profit):** All five were in gain, so no stop was computed: MRVL +7.9%, ORCL +6.6%, AAPL +5.0%, LIN +1.6%, COST +0.9%. No take-profit tiers fired and nothing was sold.
-- **Conviction trims:** MRVL (+173% over its $39.49 target) and ORCL (+170% over target) still qualify. Each is now at streak 2 of 3, so neither was trimmed. If both stay low-conviction and overweight on the next cycle, both will trim. AAPL, COST and LIN do not qualify.
-- **Candidates:**
-  - LIN (top-up, medium): approved, $38.92, which brings it up to the medium target of about $79.
-  - COST (top-up, medium effective, since it was high today and medium yesterday): rejected because it is already at target ($79.37 vs $79.04).
-  - AAPL (top-up, low): rejected because it is already above target ($44.88 vs $39.52).
-  - MRVL (top-up): rejected for three reasons: a 4.8% price gap, the wash-sale guard (loss sale on 11-05), and the stop-loss re-entry lock.
-  - ORCL (top-up): rejected because of a 6.2% price gap. It is also far above its target.
-  - PG, LLY, V, AMD, TTEK, REZI, FA (new): rejected because there were no open slots (5 of 5 held).
+- **Loss-limit check:** Daily realized P&L was -$0.73 (-0.10%) and weekly was +$2.68 (+0.35%). Entries were **not halted**.
+- **Held positions (stop-loss/take-profit):** MRVL was down 3.2% from average cost against a volatility stop of 15% (20-day stdev 7.6%, clamped to the max), so the stop did not trigger. AAPL (+4.5%), ORCL (+2.8%), COST (+2.4%) and LIN (+0.7%) were in gain, so no stop was computed. No take-profit tiers fired.
+- **Conviction trims:** AAPL (+84% over its $24.21 low-conviction target) and LIN (+226% over target) qualify, but each is only at streak 1 of 3, so neither was trimmed. COST does not qualify.
+- **Exits (Phase A exit_existing):** MRVL and ORCL were both sold in full.
+- **Candidates (Monday weekend-news check found nothing invalidating):**
+  - V (new, low): approved at $24.21. The buy was **not placed** because the broker review returned EQUITY_NOT_ENOUGH_BP_DOLLAR_BASED. Today's sale proceeds ($199.27) are unsettled in this cash account, so buying power is $0.
+  - LLY (new, medium): rejected because of a 3.09% price gap ($1430.74 -> $1475.00), which exceeds the 3% ceiling.
+  - AMD (new, low): rejected by the wash-sale guard (AMD was sold at a loss on 10-20).
+  - COST (top-up, high): rejected because it is already at target ($80.77 vs $80.72).
+  - LIN (top-up, low): rejected because it is already above target ($78.90 vs $24.21).
+  - AAPL (top-up, low): rejected because it is already above target ($44.59 vs $24.21).
 - **Orders placed (live, filled):**
-  - BUY LIN $38.92 (0.073479 sh @ $529.67, top-up)
-- Positions are still MRVL, AAPL, ORCL, COST and LIN, which is 5 of 5. Cash is about $240.
+  - SELL MRVL 0.667983 sh @ $144.83 (~$96.74, realized -$3.26, no wash sale)
+  - SELL ORCL 0.851148 sh @ $120.46 (~$102.53, realized +$2.53)
+- **Positions are now AAPL, COST and LIN (3 of 5).** Cash is $199.27, all of it unsettled.
+- **Note for the human:** before today's sells, cash was $0 and account value had dropped from about $658 to about $403 since 11-12. That looks like a withdrawal. If it was one, `starting_capital_usd` (761.44) needs a manual update.
