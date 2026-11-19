@@ -1,29 +1,29 @@
-# 2026-11-18
+# 2026-11-19
 
-Mode: **live** (dry-run cycle count 10 of 10 required). 8 candidates considered (Phase A proposals dated 2026-11-17), 2 orders reviewed, 2 placed.
+Live mode, Phase A proposals from 2026-11-18. Account value $269.52, cash $72.94 before orders.
 
 ## Loss-limit check
-- Realized today −$0.28 (−0.04%), this week −$1.01 (−0.13%). Within limits, so entries were not halted.
+- Realized P&L is $0.00 today and −$1.00 this week (−0.13% of $761.44 starting capital). Not halted.
 
-## Held positions: stop-loss / take-profit
-- **AAPL**: up 4.27% on average cost. Stop not computed (position is in gain), no take-profit tier reached. Holding.
-- **COST**: up 1.60%. Stop not computed (position is in gain), no take-profit tier reached. Holding.
-- **LIN**: down 2.64%, stop 5.00% (volatility-scaled, stdev 1.23%). Not triggered.
-- **LLY**: down 0.67%, stop 5.95% (stdev 2.38%). Not triggered.
-- **V**: down 1.60%, stop 5.00% (stdev 1.77%). Not triggered.
+## Held positions: stop-loss and take-profit
+- **AAPL**: up 3.35% on average cost, so no stop was computed. No take-profit tier fired.
+- **COST**: up 0.50%, so no stop was computed. No tier fired.
+- **LIN**: down 3.40%, stop 5.00% (stdev 1.16%). Not triggered.
+- **LLY**: down 3.68%, stop 6.01% (stdev 2.40%). Not triggered.
+- **V**: down 2.83%, stop 5.00% (stdev 1.73%). Not triggered.
 
 ## Conviction trim
-- **AAPL**: low conviction and 86% over its $23.97 target for 3 straight cycles, so a trim fired. Sold ~$20.53.
-- **LIN**: low conviction and 218% over its $23.97 target for 3 straight cycles, so a trim fired. Sold ~$52.32. The sale realized a loss and a lot bought 2026-11-12 is still held, so it is flagged as a **possible wash sale**.
-- COST, LLY, V: did not qualify.
+- **AAPL, LIN, V**: low conviction and about 45–48% over the new $16.20 target. That counts as cycle 1 of 3, so no trim yet.
+- COST, LLY: did not qualify.
+- Targets are lower because account value fell from about $399.5 yesterday to about $270 today.
 
 ## Candidates
-- **PG, SO, CHYM** (new): rejected because no slots are open (5 of 5 positions held).
-- **AAPL, LIN** (top-up): rejected because a conviction trim fired this cycle, and a symbol can't be topped up in the same cycle it was sold.
-- **COST** (top-up, high conviction): rejected because it is already at its $79.94 target.
-- **LLY** (top-up, sized at medium because conviction drifted from 11-16 medium to 11-17 high): headroom of only $0.13, below the $5 minimum top-up, so no order.
-- **V** (top-up, low conviction): headroom of only $0.19, below the $5 minimum top-up, so no order.
+- **HD, PG, AMD, GLBE** (new): rejected because no slots are open (5 of 5 positions held).
+- **LLY** (top-up, high conviction): **approved for $7.35**, raising it toward its $53.90 target.
+- **LIN** (top-up): blocked for two reasons:
+  - Wash-sale guard: it was sold at a loss on 2026-11-18.
+  - Sell re-entry lock: the $512.18 ask is above the $511.07 sale price, and only 1 of 10 trading days has passed.
+- **COST** (high), **AAPL** (low), **V** (low): rejected because they are already at or above target, so no top-up.
 
 ## Orders placed (live, filled)
-- **SELL AAPL** 0.057926 sh @ $355.05 (~$20.57), conviction trim. Realized +$0.92.
-- **SELL LIN** 0.102443 sh @ $511.23 (~$52.37), conviction trim. Realized −$1.20, wash-sale flag set.
+- **BUY LLY** $7.35 (0.005349 sh @ $1,373.90), top-up.
