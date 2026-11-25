@@ -726,3 +726,17 @@
 {"date": "2026-11-24", "timestamp": "16:36:07", "symbol": "INSM", "direction": "avoid", "conviction": "high"}
 {"date": "2026-11-24", "timestamp": "16:36:07", "symbol": "AMTM", "direction": "long", "conviction": "medium"}
 {"date": "2026-11-24", "timestamp": "16:36:07", "symbol": "KYMR", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "INSM", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "PG", "direction": "long", "conviction": "low"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "SKHY", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "URBN", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "HD", "direction": "long", "conviction": "low"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "AAPL", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "MCD", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "LLY", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "COST", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "ANT", "direction": "avoid", "conviction": "low"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "SO", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "SPCX", "direction": "avoid", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "V", "direction": "long", "conviction": "medium"}
+{"date": "2026-11-25", "timestamp": "16:33:23", "symbol": "LIN", "direction": "long", "conviction": "low"}
